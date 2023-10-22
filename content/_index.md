@@ -15,7 +15,7 @@ title = "HRT In Montreal"
 | [Dr. Pierre Côté, general practitioner](blog/doctors/cote) | [Urban Medical Clinic of Quartier Latin](blog/clinics/urbain) | | | | | | | | | 
 | [Dr. Rachel Scott, endocrinologist](blog/doctors/scott) | [Sainte-Justine¸Hospital](blog/clinics/st-justine)  | | | | | | | | | 
 | [Dr. Gabrielle Landry, private doctor](blog/doctors/landry) | [Clinic ELNA](blog/clinics/elna)  | | | | | | | | | 
-| [Dr. Sean Yaphne, general practitioner](blog/doctors/yaphne) | [Clinique l'Actuel](blog/clinics/actuel)  | | | | | | | | | 
+| [Dr. Sean Yaphne, general practitioner](blog/doctors/yaphne) | [Clinique l'Actuel](blog/clinics/actuel)  | no | | | | | | | | 
 | [Dr. A.J. Rubineau](blog/doctors/rubineau) | [Concordia Health Services](blog/clinics/concordia)  | | | | | | | | | 
 | [Dr. Pierre-Paul Tellier](blog/doctors/tellier) | ¸[CLSC de Côte-des-Neiges](blog/clinics/cote-des-neiges)  | | | | | | | | | 
 | [Dr. Patrick Moynihan](blog/doctors/moynihan) | [The Meraki Centre](blog/clinics/meraki) | | | | | | | | | 
