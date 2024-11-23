@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+	font-family: Arial, sans-serif;
+}
+h1 {
+	color:  #850606;
+  font-size: 3em;
+  padding: 10px 0;
+}
+
+header {
+	background-color: #850606;
+	padding: 30px;
+	text-align: right;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	overflow: hidden;
+	}
+
+.navbar {
+  position: relative;
+}
+
+.navbar li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+.navbar li a {
+	display: grid;
+	width: 140px;
+  text-decoration: none;
+  color: white;
+  scale: 1.25;
+}
+
+
+.content {
+	margin-left: 10px;
+	padding: 50px 20px;
+}
+
