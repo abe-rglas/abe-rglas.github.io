@@ -7,7 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
 
@@ -16,17 +19,24 @@ jobs:
         with:
           node-version: current
 
-      - name: Install dependencies & build
-        run: |
-          npm ci
-          npm run build
+      - name: Persist npm cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
+      - name: Persist Eleventy .cache
+        uses: actions/cache@v3
+        with:
+          path: ./.cache
+          key: ${{ runner.os }}-eleventy-fetch-cache
+
+      - run: npm install
+      - run: npm run build-ghpages
+
       - name: Deploy
-        uses: abe-rglas/actions-gh-pages@v3.8.0
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          #publish_dir is the folder on the docker instance which eleventy builds the pages to.
-          #it is not the docs folder in the repository
-          publish_dir: _site 
-          #publish_branch is the branch in the repository.
-          #this is where you need to point GitHub pages
-          publish_branch: gh-pages
+          publish_dir: ./_site
