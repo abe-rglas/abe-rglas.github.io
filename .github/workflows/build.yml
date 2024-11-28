@@ -5,15 +5,15 @@ jobs:
   build_deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@master
-      - name: Build
-        uses: TartanLlama/actions-eleventy@master
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
             node-version: 18
       - run: npm ci
       - run: npm test
+      - uses: actions/checkout@master
+      - name: Build
+        uses: TartanLlama/actions-eleventy@master
       - name: Deploy
         uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
         with:
