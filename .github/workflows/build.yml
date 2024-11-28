@@ -8,6 +8,12 @@ jobs:
       - uses: actions/checkout@master
       - name: Build
         uses: TartanLlama/actions-eleventy@master
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+            node-version: 18
+      - run: npm ci
+      - run: npm test
       - name: Deploy
         uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
         with:
@@ -16,7 +22,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
-
       - name: Persist Eleventy .cache
         uses: actions/cache@v3
         with:
