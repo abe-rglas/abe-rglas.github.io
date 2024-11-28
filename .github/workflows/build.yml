@@ -27,7 +27,7 @@ jobs:
       - run: npm run build gh-pages
 
       - name: Deploy
-        uses: peaceiris/actions-ghpages@v3
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
