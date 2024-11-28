@@ -1,27 +1,19 @@
-name: Build Eleventy
-on:
-  push:
-    branches:
-      - main
+name: Eleventy Build
+on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+  build_deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js current
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@master
+      - name: Build
+        uses: TartanLlama/actions-eleventy@master
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: current
-
-      - name: Persist npm cache
-        uses: actions/cache@v3
-        with:
+          publish_dir: _site 
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
 
